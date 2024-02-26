@@ -3,14 +3,16 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240226115014_init2")]
+    partial class init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,39 +102,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("ContactId");
 
                     b.ToTable("Contacts");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Destination", b =>
-                {
-                    b.Property<int>("DestinationId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DayNight")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("DestinationId");
-
-                    b.ToTable("Destinations");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Feature", b =>
