@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Repository;
 using EntityLayer.Concrete;
 using System;
@@ -11,5 +12,8 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfNewsLetterDal : GenericRepository<NewsLetter>, INewsLetterDal
     {
+        public EfNewsLetterDal(Context context) : base(context)
+        {
+        }
     }
 }
