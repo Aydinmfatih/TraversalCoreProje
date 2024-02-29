@@ -12,6 +12,7 @@ namespace DataAccessLayer.Abstract
         void Insert(T entity);
         void Delete(T entity);
         void Update(T entity);
+        T GetById(int id);
         List<T> GetList();
     }
 }
