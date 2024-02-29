@@ -22,6 +22,7 @@ namespace TraversalCoreProje.Controllers
         [HttpGet]
         public IActionResult DestinationDetail(int id)
         {
+            ViewBag.Id = id;
             var value = _destinationService.TGetById(id);
             return View(value);
         }
