@@ -1,0 +1,114 @@
+﻿@model TraversalCoreProje.Models.UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Invent Signup Form Responsive Widget Template | Home :: W3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/webeb/css/style.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+	<!-- /login-section -->
+	<section class="w3l-login-6">
+		<div class="login-hny">
+			<div class="form-content">
+				<div class="form-right">
+					<div class="overlay">
+						<div class="grid-info-form">
+							<h5>Traversal Rezervasyon</h5>
+							<h3>Hesap Oluştur </h3>
+							<p>
+								Birbirinden deneyimli rehberlerimiz eşliğinde İskandinav ülkelerin soğuğunu,
+								Akdeniz ülkelerin sıcaklığını , güzel ülkemizin Kapadokya'dan Sürmene'ye ,Ölüdeniz'den Asos'a
+								Seyehatlerimize kayıt ol
+							</p>
+							<a href="index.html" class="read-more-1 btn">Get Started</a>
+						</div>
+
+					</div> 
+				</div>
+				<div class="form-left">
+					<div class="middle">
+						<h4>Bize Katılın</h4>
+						<p>Hemen Ücretsiz Hesap Oluşturun</p>
+					</div>
+					<form  method="post"   class="signin-form">
+						<div class="form-input">
+							<label>Adınız</label>
+							<input asp-for="Name" type="text"   />
+							<span asp-validation-for="Name" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Soyadınız</label>
+							<input asp-for="Surname" type="text"  />
+							<span asp-validation-for="Surname" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Kullanıcı Adınız</label>
+							<input asp-for="Username" type="text"  required />
+							<span asp-validation-for="Username" class="text-danger"></span>
+
+						</div>
+						<div class="form-input">
+							<label>Email Adresiniz</label>
+							<input asp-for="Mail" type="email" required />
+							<span asp-validation-for="Mail" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifre</label>
+							<input asp-for="Password" type="password" required />
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+						<div class="form-input">
+							<label>Şifre Tekrar</label>
+							<input asp-for="ConfirmPassword" type="password" required />
+							<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+						</div>
+
+						<label class="container">
+							Şartları okudum <a href="#">Kabul Ediyorum</a> <a href="#">Gizlilik</a>
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+						<button class="btn">Kayıt Ol</button>
+					</form>
+					<div class="copy-right text-center">
+						<p>
+							© @DateTime.Now.Year Tüm Hakları Saklıdır
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+	<!-- //login-section -->
+</body>
+
+</html>
