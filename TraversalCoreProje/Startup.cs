@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TraversalCoreProje.Models;
 
 namespace TraversalCoreProje
 {
@@ -55,7 +56,7 @@ namespace TraversalCoreProje
             services.AddControllersWithViews();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser()
@@ -91,6 +92,13 @@ namespace TraversalCoreProje
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllerRoute(
+				  name: "areas",
+				  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+				);
+			});
+		}
     }
 }
