@@ -1,0 +1,40 @@
+﻿@model TraversalCoreProje.Areas.Member.Models.UserEditViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Profil Düzenleme Sayfası</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Name">Adınız</label>
+        <input type="text" class="form-control" id="Name" asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <label for="Surname">Soyadınız</label>
+        <input type="text" class="form-control" id="Surname" asp-for="Surname" />
+    </div>
+    <div class="form-group">
+        <label for="Mail">Mail Adresiniz</label>
+        <input type="text" class="form-control" id="Mail" asp-for="Mail" />
+    </div>
+    <div class="form-group">
+        <label for="Password">Şifreniz</label>
+        <input type="password" class="form-control" id="Password" asp-for="Password" />
+    </div>
+    <div class="form-group">
+        <label for="ConfirmPassword">Şifre Tekrar</label>
+        <input type="password" class="form-control" id="ConfirmPassword" asp-for="ConfirmPassword" />
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">Telefon Numaranız</label>
+        <input type="tel" class="form-control" id="PhoneNumber" asp-for="PhoneNumber" />
+    </div>
+    <div class="form-group">
+        <label>Resim Seçiniz</label>
+        <input type="file" class="form-control"  asp-for="Image" />
+    </div>
+    <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+</form>
