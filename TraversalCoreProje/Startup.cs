@@ -54,6 +54,9 @@ namespace TraversalCoreProje
             services.AddScoped<ICommentDal, EfCommentDal>();
             services.AddScoped<ICommentService, CommentManager>();
 
+            services.AddScoped<IReservationDal, EfReservationDal>();
+            services.AddScoped<IReservationService, ReservationManager>();
+
             services.AddControllersWithViews();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
