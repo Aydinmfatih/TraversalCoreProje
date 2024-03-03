@@ -1,10 +1,11 @@
 ﻿using BusinessLayer.Abstract;
-using DataAccessLayer.Migrations;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace TraversalCoreProje.Areas.Member.Controllers
 {
@@ -13,22 +14,33 @@ namespace TraversalCoreProje.Areas.Member.Controllers
     {
         private readonly IDestinationService _destinationService;
         private readonly IReservationService _reservationService;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ReservationController(IDestinationService destinationService, IReservationService reservationService)
+        public ReservationController(IDestinationService destinationService, IReservationService reservationService, UserManager<AppUser> userManager)
         {
             _destinationService = destinationService;
             _reservationService = reservationService;
+            _userManager = userManager;
         }
 
-        public IActionResult MyCurrentReservation()
+        public async Task<IActionResult>  MyCurrentReservation()
         {
-
-
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var value = _reservationService.GetListWithReservationByWaitAccepted(values.Id);
+            return View(value);
         }
-        public IActionResult MyOldReservation()
+        public async Task<IActionResult> MyApprovalReservation()
         {
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var value = _reservationService.GetListWithReservationByWaitApproval(values.Id);
+            return View(value);
+        }
+        public async Task<IActionResult>  MyOldReservation()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            var value = _reservationService.GetListWithReservationByWaitPrevious(values.Id);
+            return View(value);
+         
         }
         public IActionResult NewReservation()
         {

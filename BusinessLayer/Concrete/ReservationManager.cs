@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,26 @@ namespace BusinessLayer.Concrete
         public ReservationManager(IReservationDal reservationDal)
         {
             _reservationDal = reservationDal;
+        }
+
+        public List<Reservation> GetListByFilter(Expression<Func<Reservation, bool>> filter)
+        {
+          return  _reservationDal.GetListByFilter(filter);
+        }
+
+        public List<Reservation> GetListWithReservationByWaitAccepted(int id)
+        {
+            return _reservationDal.GetListWithReservationByWaitAccepted(id);
+        }
+
+        public List<Reservation> GetListWithReservationByWaitApproval(int id)
+        {
+            return _reservationDal.GetListWithReservationByWaitApproval(id);
+        }
+
+        public List<Reservation> GetListWithReservationByWaitPrevious(int id)
+        {
+            return _reservationDal.GetListWithReservationByWaitPrevious(id);
         }
 
         public void TAdd(Reservation entity)

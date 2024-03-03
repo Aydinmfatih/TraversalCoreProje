@@ -23,6 +23,7 @@ namespace EntityLayer.Concrete
         public string Image2 { get; set; }
 
         public List<Comment> Comments { get; set; }
+        public List<Destination> Destinations { get; set; }
 
     }
 }

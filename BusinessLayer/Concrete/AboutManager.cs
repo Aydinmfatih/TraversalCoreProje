@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,11 @@ namespace BusinessLayer.Concrete
         public AboutManager(IAboutDal aboutDal)
         {
             _aboutDal = aboutDal;
+        }
+
+        public List<About> GetListByFilter(Expression<Func<About, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public void TAdd(About entity)
