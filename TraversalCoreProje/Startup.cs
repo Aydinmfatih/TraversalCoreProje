@@ -48,6 +48,9 @@ namespace TraversalCoreProje
             services.AddScoped<ISubAboutService, SubAboutManager>();
             services.AddScoped<ISubAboutDal, EfSubAboutDal>();
 
+            services.AddScoped<IGuideService, GuideManager>();
+            services.AddScoped<IGuideDal, EfGuideDal>();
+
             services.AddScoped<ITestimonialService, TestimonialManager>();
             services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
