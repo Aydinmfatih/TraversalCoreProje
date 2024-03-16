@@ -53,6 +53,7 @@ namespace DataAccessLayer.Repository
         public void Update(T entity)
         {
             _context.Update(entity);
+            _context.SaveChanges();
         }
     }
 }
