@@ -9,5 +9,13 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         {
             return View();
         }
+        public PartialViewResult PartialHead()
+        {
+            return PartialView();
+        }
+        public PartialViewResult PartialScript()
+        {
+            return PartialView();
+        }
     }
 }
