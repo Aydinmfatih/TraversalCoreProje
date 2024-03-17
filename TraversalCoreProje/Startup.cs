@@ -1,5 +1,6 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.Container;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
@@ -39,27 +40,7 @@ namespace TraversalCoreProje
 
             services.AddDbContext<Context>(options =>
                   options.UseSqlServer(Configuration.GetConnectionString("TraversalConnection")));
-            services.AddScoped<IDestinationService, DestinationManager>();
-            services.AddScoped<IDestinationDal, EfDestinationDal>();
-
-            services.AddScoped<IFeature2Service, Feature2sManager>();
-            services.AddScoped<IFeature2Dal, EfFeature2Dal>();
-
-            services.AddScoped<ISubAboutService, SubAboutManager>();
-            services.AddScoped<ISubAboutDal, EfSubAboutDal>();
-
-            services.AddScoped<IGuideService, GuideManager>();
-            services.AddScoped<IGuideDal, EfGuideDal>();
-
-            services.AddScoped<ITestimonialService, TestimonialManager>();
-            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-
-            services.AddScoped<ICommentDal, EfCommentDal>();
-            services.AddScoped<ICommentService, CommentManager>();
-
-            services.AddScoped<IReservationDal, EfReservationDal>();
-            services.AddScoped<IReservationService, ReservationManager>();
-
+            services.ContainerDependencies();
             services.AddControllersWithViews();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

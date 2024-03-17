@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICommentService:IGenericService<Comment>
+    public interface IAppUserService:IGenericService<AppUser>
     {
-        List<Comment> TGetDestinationById(int id);
-        List<Comment> TGetListWithDestination();
-        
     }
 }
