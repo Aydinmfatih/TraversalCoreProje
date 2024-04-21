@@ -9,10 +9,12 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
     public class UserController : Controller
     {
         private readonly IAppUserService _appUserService;
+        private readonly IReservationService _reservationService;
 
-        public UserController(IAppUserService appUserService)
+        public UserController(IAppUserService appUserService, IReservationService reservationService)
         {
             _appUserService = appUserService;
+            _reservationService = reservationService;
         }
 
         public IActionResult Index()
@@ -42,6 +44,11 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         {
             _appUserService.TGetList();
             return View();
+        }
+        public IActionResult ReservationUser(int id)
+        {
+           var value = _reservationService.GetListWithReservationByWaitAccepted(id);
+            return View(value);
         }
     }
 }
